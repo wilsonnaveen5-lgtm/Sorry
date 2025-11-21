@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>I Am Truly Sorry</title>
+
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        background: linear-gradient(135deg, #ffdde1, #ee9ca7);
+        font-family: 'Poppins', sans-serif;
+        color: #333;
+        overflow-x: hidden;
+    }
+
+    .container {
+        max-width: 850px;
+        margin: 40px auto;
+        background: #fff;
+        padding: 40px;
+        border-radius: 20px;
+        box-shadow: 0 6px 25px rgba(0,0,0,0.1);
+        animation: fadeIn 1.2s ease-in-out;
+        position: relative;
+        z-index: 2;
+        display: none;
+    }
+
+    #firstPage {
+        max-width: 850px;
+        margin: 40px auto;
+        background: #fff;
+        padding: 60px 40px;
+        border-radius: 20px;
+        box-shadow: 0 6px 25px rgba(0,0,0,0.1);
+        text-align: center;
+        animation: fadeIn 1.2s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+        from {opacity: 0; transform: translateY(20px);}
+        to {opacity: 1; transform: translateY(0);}
+    }
+
+    .heart {
+        text-align: center;
+        font-size: 70px;
+        color: #e63970;
+        animation: heartbeat 1.5s infinite;
+    }
+
+    @keyframes heartbeat {
+        0% {transform: scale(1);}
+        30% {transform: scale(1.25);}
+        60% {transform: scale(1);}
+    }
+
+    h1 {
+        text-align: center;
+        color: #e63970;
+        font-size: 2.6rem;
+        margin: 10px;
+    }
+
+    .open-letter-btn {
+        background: #e63970;
+        padding: 15px 35px;
+        color: #fff;
+        font-size: 1.3rem;
+        border: none;
+        border-radius: 50px;
+        cursor: pointer;
+        margin-top: 30px;
+        transition: 0.3s;
+    }
+
+    .open-letter-btn:hover {
+        background: #ff4f87;
+        transform: translateY(-3px);
+    }
+
+    .card {
+        background: #fff0f5;
+        padding: 20px;
+        border-left: 5px solid #e63970;
+        border-radius: 12px;
+        margin: 25px 0;
+    }
+
+    .emoji {
+        font-size: 30px;
+        margin-right: 10px;
+    }
+
+    .special {
+        background: #ffe1ec;
+        border-left: 5px solid #ff4f87;
+    }
+
+    .signature {
+        text-align: right;
+        font-size: 1.2rem;
+        margin-top: 40px;
+        font-style: italic;
+    }
+
+    /* Floating Hearts */
+    .floating-heart {
+        position: fixed;
+        bottom: -10px;
+        font-size: 25px;
+        color: #ff4f87;
+        animation: floatUp 6s linear infinite;
+        opacity: 0.8;
+        z-index: 1;
+    }
+
+    @keyframes floatUp {
+        0% {transform: translateY(0);}
+        100% {transform: translateY(-120vh) translateX(40px);}
+    }
+
+    /* 1:1 IMAGE SLIDER */
+    .slider {
+        width: 100%;
+        height: 400px;
+        aspect-ratio: 1 / 1;
+        overflow: hidden;
+        border-radius: 15px;
+        margin: 30px 0;
+        position: relative;
+    }
+
+    .slides {
+        display: flex;
+        height: 100%;
+        animation: slideOneByOne 40s infinite;
+    }
+
+    .slides img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        flex-shrink: 0;
+        border-radius: 15px;
+    }
+
+    @keyframes slideOneByOne {
+        0% { transform: translateX(0%); }
+        7%  { transform: translateX(0%); }
+        14% { transform: translateX(-100%); }
+        21% { transform: translateX(-200%); }
+        28% { transform: translateX(-300%); }
+        35% { transform: translateX(-400%); }
+        42% { transform: translateX(-500%); }
+        49% { transform: translateX(-600%); }
+        56% { transform: translateX(-700%); }
+        63% { transform: translateX(-800%); }
+        70% { transform: translateX(-900%); }
+        77% { transform: translateX(-1000%); }
+        84% { transform: translateX(-1100%); }
+        91% { transform: translateX(-1200%); }
+        100%{ transform: translateX(-1300%); }
+    }
+
+    /* Accept Button */
+    .btn-container {
+        text-align: center;
+        margin-top: 40px;
+    }
+
+    .accept-btn {
+        background: #e63970;
+        color: white;
+        padding: 15px 35px;
+        font-size: 1.2rem;
+        border: none;
+        border-radius: 50px;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+
+    .accept-btn:hover {
+        background: #ff4f87;
+        transform: translateY(-3px);
+    }
+
+    /* Confetti */
+    .confetti {
+        position: fixed;
+        width: 10px;
+        height: 10px;
+        animation: confettiFall 2s linear forwards;
+        z-index: 999;
+    }
+
+    @keyframes confettiFall {
+        to {
+            transform: translateY(120vh) rotate(720deg);
+            opacity: 0;
+        }
+    }
+
+</style>
+</head>
+
+<body>
+
+<!-- Floating Hearts -->
+<script>
+for (let i = 0; i < 20; i++) {
+    let heart = document.createElement("div");
+    heart.className = "floating-heart";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.animationDuration = (4 + Math.random() * 4) + "s";
+    heart.innerHTML = "❤️";
+    document.body.appendChild(heart);
+}
+</script>
+
+<!-- FIRST PAGE -->
+<div id="firstPage">
+    <div class="heart">💌</div>
+    <h1>I Have Something to Tell You…</h1>
+
+    <button class="open-letter-btn" onclick="openLetterPage()">
+        Open the Letter 💖
+    </button>
+</div>
+
+<!-- SECOND PAGE -->
+<div class="container" id="secondPage">
+
+    <div class="heart">❤️</div>
+    <h1>I Am Truly Sorry</h1>
+
+    <div class="card"><div class="emoji">💔</div><strong>What I said was wrong. You never deserved that.</strong></div>
+    <div class="card"><div class="emoji">😞</div><strong>I let anger speak instead of my heart.</strong></div>
+    <div class="card"><div class="emoji">📵</div><strong>My ego stopped me from calling you.</strong></div>
+
+    <div class="card special">
+        <div class="emoji">⌨️</div>
+        <strong>Sometimes all we needed was Ctrl + Z.</strong><br>
+        I wish I could undo my words.
+    </div>
+
+    <div class="card"><div class="emoji">💗</div><strong>You deserve respect and love always.</strong></div>
+    <div class="card"><div class="emoji">🔄</div><strong>I will be better for you.</strong></div>
+    <div class="card"><div class="emoji">🤝</div><strong>I’m ready to fix this when you are.</strong></div>
+
+    <div class="signature">
+        — I’m truly sorry, and I love you KUNJIIIiiiiii. 💖
+    </div>
+
+    <!-- 1:1 Photo Slider -->
+    <div class="slider">
+        <div class="slides">
+            <img src="img1.jpg">
+            <img src="img2.jpg">
+            <img src="img3.jpg">
+            <img src="img4.jpg">
+            <img src="img5.jpg">
+            <img src="img6.jpg">
+            <img src="img7.jpg">
+            <img src="img8.jpg">
+            <img src="img9.jpg">
+            <img src="img10.jpg">
+            <img src="img11.jpg">
+            <img src="img12.jpg">
+            <img src="img13.jpg">
+            <img src="img14.jpg">
+        </div>
+    </div>
+
+    <div class="btn-container">
+        <button class="accept-btn" onclick="triggerApology()">Accept the Apology 💞</button>
+    </div>
+
+</div>
+
+<!-- LETTER PAGE SCRIPT -->
+<script>
+function openLetterPage() {
+    document.getElementById("firstPage").style.display = "none";
+    document.getElementById("secondPage").style.display = "block";
+}
+</script>
+
+<!-- Confetti Script -->
+<script>
+function triggerApology() {
+    for (let i = 0; i < 100; i++) {
+        let conf = document.createElement("div");
+        conf.className = "confetti";
+        conf.style.left = Math.random() * 100 + "vw";
+        conf.style.background = ["#ff4f87", "#ffcc00", "#00c2ff", "#ff7a00"][Math.floor(Math.random()*4)];
+        conf.style.animationDuration = 1 + Math.random() * 2 + "s";
+        document.body.appendChild(conf);
+        setTimeout(() => conf.remove(), 2000);
+    }
+
+    alert("Thank you for accepting my apology ❤️");
+}
+</script>
+
+<!-- Soft Piano -->
+<script>
+let audioStarted = false;
+
+document.addEventListener("click", function() {
+    if (audioStarted) return;
+    audioStarted = true;
+
+    let ctx = new (window.AudioContext || window.webkitAudioContext)();
+    let osc = ctx.createOscillator();
+    let gain = ctx.createGain();
+
+    osc.type = "sine";
+    osc.frequency.setValueAtTime(440, ctx.currentTime);
+    gain.gain.setValueAtTime(0.04, ctx.currentTime);
+
+    osc.connect(gain);
+    gain.connect(ctx.destination);
+
+    osc.start();
+    setTimeout(() => osc.stop(), 1);
+});
+</script>
+
+</body>
+</html>
